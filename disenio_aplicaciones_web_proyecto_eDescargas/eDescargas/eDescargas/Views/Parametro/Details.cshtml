@@ -1,0 +1,67 @@
+﻿@model eDescargas.Models.parametro
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>parametro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.preview_libros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preview_libros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.path_libros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.path_libros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preview_musica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preview_musica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.path_musica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.path_musica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preview_peliculas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preview_peliculas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.path_peliculas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.path_peliculas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:AppPropinas.Converters"
+             x:Class="AppPropinas.MainPage">
+
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DecimalToMoney x:Key="toMoney"></converters:DecimalToMoney>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="#ECE7E5">
+        <Frame BackgroundColor="#FF8052" Padding="24" CornerRadius="0">
+            <Label Text="Propinas" HorizontalTextAlignment="Center" TextColor="#FFD1C1" FontSize="36" FontFamily="Lobster-Regular" FontAttributes="Bold"/>
+        </Frame>
+
+        <TableView Intent="Form">
+            <TableSection Title="Datos" TextColor="#974C32">
+                <EntryCell x:Name="txtTotal"
+                           Label="Total"
+                           Placeholder="0.0"
+                           LabelColor="#FF8155"
+                           Text="{Binding propinaModel.Total}"/>
+
+                <EntryCell x:Name="txtPropina"
+                           Label="Propina"
+                           Placeholder="0.0"
+                           LabelColor="#FF8155"
+                           Text="{Binding propinaModel.Propina}"/>
+
+                <EntryCell x:Name="txtNoPersonas"
+                           Label="# Personas"
+                           LabelColor="#FF8155"
+                           Text="{Binding propinaModel.NoPersonas}"/>
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <StackLayout>
+                        <Button x:Name="btnCalcular"
+                                Text="Calcular!"
+                                Command="{Binding OperationsCommand}"
+                                BackgroundColor="#FF8052"
+                                TextColor="#FFD1C1"
+                                BorderColor="#E1744D"
+                                CornerRadius="50"
+                                HeightRequest="35"
+                                WidthRequest="35"
+                                BorderWidth="2"/>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Resultado"
+                          TextColor="#974C32">
+                <TextCell x:Name="lblPropina"
+                          Text="Propina"
+                          DetailColor="#A09794"
+                          TextColor="#FF8155"
+                          Detail="{Binding propinaModel.TotalPropina, Converter={StaticResource toMoney}}"/>
+
+                <TextCell x:Name="lblTotal"
+                          Text="Total"
+                          DetailColor="#A09794"
+                          TextColor="#FF8155"
+                          Detail="{Binding propinaModel.TotalConPropina, Converter={StaticResource toMoney}}"/>
+
+                <TextCell x:Name="lblPropinaPorPersona"
+                          Text="Propina por Personal"
+                          DetailColor="#A09794"
+                          TextColor="#FF8155"
+                          Detail="{Binding propinaModel.TotalPropinaPorPersona, Converter={StaticResource toMoney}}"/>
+
+                <TextCell x:Name="lblTotalPorPersona"
+                          Text="Total por Persona"
+                          DetailColor="#A09794"
+                          TextColor="#FF8155"
+                          Detail="{Binding propinaModel.TotalPorPersona, Converter={StaticResource toMoney}}"/>
+
+            </TableSection>
+        </TableView>
+    </StackLayout>
+
+</ContentPage>

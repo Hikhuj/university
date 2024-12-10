@@ -1,0 +1,63 @@
+﻿@model IEnumerable<eDescargas.Models.parametro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.preview_libros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.path_libros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preview_musica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.path_musica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preview_peliculas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.path_peliculas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.preview_libros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.path_libros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preview_musica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.path_musica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preview_peliculas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.path_peliculas)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

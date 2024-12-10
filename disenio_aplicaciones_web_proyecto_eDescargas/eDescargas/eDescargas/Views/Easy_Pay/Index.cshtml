@@ -1,0 +1,52 @@
+﻿@model IEnumerable<eDescargas.Models.easy_pay>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.num_cuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo_seguridad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contrasenia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_tarjeta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_cuenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_seguridad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contrasenia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_tarjeta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

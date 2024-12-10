@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProyectoFinal.View.MenuView">
+    <!--Menu Principal de Usuario-->
+    <NavigationPage.TitleView>
+        <Label Text="Menu"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   Padding="15"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+         <ScrollView>
+
+            <Grid RowSpacing="8" Padding="10"
+                  HorizontalOptions="Center"
+                  VerticalOptions="StartAndExpand"
+                  WidthRequest="300"
+                  >
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="40" />
+                    <!--0-->
+                    <RowDefinition Height="40"/>
+                    <!--1-->
+                    <RowDefinition Height="40"/>
+                    <!--2-->
+                    <RowDefinition Height="40"/>
+                    <!--3-->
+                   <RowDefinition Height="70"/>
+                    <!--4-->
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Subir Propiedad"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       FontSize="20"
+                       TextColor="Black"/>
+                <Button x:Name="btnSubirPropiedad"
+                        Text="ir"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        TextColor="#fff"
+                        BackgroundColor="#f1c40f"
+                        CornerRadius="7"/>
+
+
+                <Label Text="Ver casas"
+                       Grid.Row="1"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="center"
+                       Grid.Column="0"
+                       FontSize="20"
+                       TextColor="black"
+                       />
+                <Button x:Name="btnVerCasas"
+                        Text="ir"
+                        TextColor="#fff"
+                        BackgroundColor="#f1c40f"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        CornerRadius="7"/>
+
+                <Label Text="Habilitar Casa"
+                       Grid.Row="2"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="center"
+                       Grid.Column="0"
+                       FontSize="20"
+                       TextColor="Black"/>
+                <Button x:Name="btnHabilitarCasa"
+                        Text="ir"
+                        TextColor="#fff"
+                        BackgroundColor="#f1c40f"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        CornerRadius="7"/>
+
+                <Label Text="Eliminar Casa"
+                       Grid.Row="3"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="center"
+                       Grid.Column="0"
+                       FontSize="20"
+                       TextColor="Black"/>
+                <Button x:Name="btnEliminarCasa"
+                        Text="ir"
+                        TextColor="#fff"
+                        BackgroundColor="#f1c40f"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        CornerRadius="7"/>
+
+
+                <Button x:Name="btnCerrar"
+                        Text="Cerrar sesion"
+                        TextColor="#fff"
+                        BackgroundColor="#f1c40f"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="15"
+                        CornerRadius="18"/>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

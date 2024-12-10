@@ -1,0 +1,28 @@
+<html>
+<head>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="CameraApp">
+    <div ng-controller="MainController">
+        <div>
+            <img src="http://localhost:9000/api/camera/fromimages" width="480" height="320" alt="">
+        </div>
+        <div>
+            <video id="videoPlayer" width="480" height="320" controls="controls">
+                <source data-ng-src="{{selectedVideoUrl}}" type="video/mp4">
+                <!--  <source src="http://localhost:9000/api/camera/fromvideo/?videoName=Illumination" type="video/mp4">-->
+            </video>
+        </div>
+        <div>
+            <select ng-model="selectedVideo">
+                <option ng-repeat="video in videos" value="{{video}}">{{video}}</option>
+            </select>
+        </div>
+        <div>
+            <button ng-click="start()">Start</button>
+            <button ng-click="stop()">Stop</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

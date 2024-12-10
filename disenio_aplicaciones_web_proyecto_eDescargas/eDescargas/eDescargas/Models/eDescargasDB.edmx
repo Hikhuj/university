@@ -1,0 +1,1061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eDescargasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bitacora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="fecha_cambio" Type="datetime" Nullable="false" />
+          <Property Name="codigo_registro" Type="nvarchar" MaxLength="50" />
+          <Property Name="tipo_registro" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="detalle_registro" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="consecutivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="consecutivo" Type="int" Nullable="false" />
+          <Property Name="permite_prefijo" Type="bit" Nullable="false" />
+          <Property Name="prefijo" Type="nvarchar" MaxLength="50" />
+          <Property Name="rango" Type="bit" />
+          <Property Name="init_rango" Type="int" />
+          <Property Name="end_rango" Type="int" />
+        </EntityType>
+        <EntityType Name="descargas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_transaccion" Type="datetime" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="nombre_item" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="easy_pay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_cuenta" Type="int" Nullable="false" />
+          <Property Name="codigo_seguridad" Type="int" Nullable="false" />
+          <Property Name="contrasenia" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_tarjeta" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="errores">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="mensaje" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numero_error" Type="int" />
+        </EntityType>
+        <EntityType Name="generos">
+          <Key>
+            <PropertyRef Name="id_genero" />
+          </Key>
+          <Property Name="id_genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="genero" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="idiomas">
+          <Key>
+            <PropertyRef Name="id_idioma" />
+          </Key>
+          <Property Name="id_idioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idioma" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="libros">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_genero" Type="int" Nullable="false" />
+          <Property Name="autor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_idioma" Type="int" Nullable="false" />
+          <Property Name="consecutivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="editorial" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="anio_publicacion" Type="int" Nullable="false" />
+          <Property Name="archivo_descarga" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="archivo_preview" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantidad_descarga" Type="int" Nullable="false" />
+          <Property Name="precio" Type="int" />
+        </EntityType>
+        <EntityType Name="musica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_genero" Type="int" Nullable="false" />
+          <Property Name="tipo_interprete" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_idioma" Type="int" Nullable="false" />
+          <Property Name="id_pais" Type="int" Nullable="false" />
+          <Property Name="disquera" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_disco" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="anio" Type="int" Nullable="false" />
+          <Property Name="archivo_descarga" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="archivo_preview" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantidad_descarga" Type="int" Nullable="false" />
+          <Property Name="consecutivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paises">
+          <Key>
+            <PropertyRef Name="id_pais" />
+          </Key>
+          <Property Name="id_pais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="parametros">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="preview_libros" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="path_libros" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="preview_musica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="path_musica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="preview_peliculas" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="path_peliculas" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="peliculas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_genero" Type="int" Nullable="false" />
+          <Property Name="anio" Type="int" Nullable="false" />
+          <Property Name="id_idioma" Type="int" Nullable="false" />
+          <Property Name="actores" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="archivo_descarga" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="archivo_preview" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="int" Nullable="false" />
+          <Property Name="consecutivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cantidad_descarga" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tarjetas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_tarjeta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mes_exp" Type="int" Nullable="false" />
+          <Property Name="anio_exp" Type="int" Nullable="false" />
+          <Property Name="cvv" Type="int" Nullable="false" />
+          <Property Name="emisor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="limite" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="saldo" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="disponible" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="nombre_tarjetahabiente" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="transacciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_transaccion" Type="datetime" Nullable="false" />
+          <Property Name="metodo_pago" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="monto_compra" Type="int" Nullable="false" />
+          <Property Name="id_consecutivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasenia" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="apellido_1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido_2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rol" Type="int" Nullable="false" />
+          <Property Name="id_consecutivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tarjeta_bancaria" Type="bit" />
+        </EntityType>
+        <EntityType Name="usuarios_roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_bitacora_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="bitacora" Type="Self.bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bitacora">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_libros_generos">
+          <End Role="generos" Type="Self.generos" Multiplicity="1" />
+          <End Role="libros" Type="Self.libros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="libros">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_libros_idiomas">
+          <End Role="idiomas" Type="Self.idiomas" Multiplicity="1" />
+          <End Role="libros" Type="Self.libros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="libros">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_musica_generos">
+          <End Role="generos" Type="Self.generos" Multiplicity="1" />
+          <End Role="musica" Type="Self.musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="musica">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_musica_idiomas">
+          <End Role="idiomas" Type="Self.idiomas" Multiplicity="1" />
+          <End Role="musica" Type="Self.musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="musica">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_musica_paises">
+          <End Role="paises" Type="Self.paises" Multiplicity="1" />
+          <End Role="musica" Type="Self.musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paises">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="musica">
+              <PropertyRef Name="id_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peliculas_generos">
+          <End Role="generos" Type="Self.generos" Multiplicity="1" />
+          <End Role="peliculas" Type="Self.peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="peliculas">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peliculas_idiomas">
+          <End Role="idiomas" Type="Self.idiomas" Multiplicity="1" />
+          <End Role="peliculas" Type="Self.peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="peliculas">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_roles_roles1">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="usuarios_roles" Type="Self.usuarios_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios_roles">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_roles-usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="usuarios_roles" Type="Self.usuarios_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios_roles">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eDescargasModelStoreContainer">
+          <EntitySet Name="bitacora" EntityType="Self.bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="consecutivos" EntityType="Self.consecutivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="descargas" EntityType="Self.descargas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="easy_pay" EntityType="Self.easy_pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="errores" EntityType="Self.errores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="generos" EntityType="Self.generos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="idiomas" EntityType="Self.idiomas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="libros" EntityType="Self.libros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="musica" EntityType="Self.musica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paises" EntityType="Self.paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parametros" EntityType="Self.parametros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="peliculas" EntityType="Self.peliculas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tarjetas" EntityType="Self.tarjetas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transacciones" EntityType="Self.transacciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios_roles" EntityType="Self.usuarios_roles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_bitacora_usuarios" Association="Self.FK_bitacora_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="bitacora" EntitySet="bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_libros_generos" Association="Self.FK_libros_generos">
+            <End Role="generos" EntitySet="generos" />
+            <End Role="libros" EntitySet="libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_libros_idiomas" Association="Self.FK_libros_idiomas">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="libros" EntitySet="libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_musica_generos" Association="Self.FK_musica_generos">
+            <End Role="generos" EntitySet="generos" />
+            <End Role="musica" EntitySet="musica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_musica_idiomas" Association="Self.FK_musica_idiomas">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="musica" EntitySet="musica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_musica_paises" Association="Self.FK_musica_paises">
+            <End Role="paises" EntitySet="paises" />
+            <End Role="musica" EntitySet="musica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peliculas_generos" Association="Self.FK_peliculas_generos">
+            <End Role="generos" EntitySet="generos" />
+            <End Role="peliculas" EntitySet="peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peliculas_idiomas" Association="Self.FK_peliculas_idiomas">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="peliculas" EntitySet="peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_roles_roles1" Association="Self.FK_usuarios_roles_roles1">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios_roles" EntitySet="usuarios_roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_roles-usuarios" Association="Self.FK_usuarios_roles-usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="usuarios_roles" EntitySet="usuarios_roles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eDescargasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bitacora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="fecha_cambio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="codigo_registro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_registro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detalle_registro" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_bitacora_usuarios" FromRole="bitacora" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="consecutivo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="consecutivo1" Type="Int32" Nullable="false" />
+          <Property Name="permite_prefijo" Type="Boolean" Nullable="false" />
+          <Property Name="prefijo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rango" Type="Boolean" />
+          <Property Name="init_rango" Type="Int32" />
+          <Property Name="end_rango" Type="Int32" />
+        </EntityType>
+        <EntityType Name="descarga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_transaccion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="nombre_item" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="easy_pay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_cuenta" Type="Int32" Nullable="false" />
+          <Property Name="codigo_seguridad" Type="Int32" Nullable="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_tarjeta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="errore">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mensaje" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numero_error" Type="Int32" />
+        </EntityType>
+        <EntityType Name="genero">
+          <Key>
+            <PropertyRef Name="id_genero" />
+          </Key>
+          <Property Name="id_genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genero1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="libros" Relationship="Self.FK_libros_generos" FromRole="generos" ToRole="libros" />
+          <NavigationProperty Name="musicas" Relationship="Self.FK_musica_generos" FromRole="generos" ToRole="musica" />
+          <NavigationProperty Name="peliculas" Relationship="Self.FK_peliculas_generos" FromRole="generos" ToRole="peliculas" />
+        </EntityType>
+        <EntityType Name="idioma">
+          <Key>
+            <PropertyRef Name="id_idioma" />
+          </Key>
+          <Property Name="id_idioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idioma1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="libros" Relationship="Self.FK_libros_idiomas" FromRole="idiomas" ToRole="libros" />
+          <NavigationProperty Name="musicas" Relationship="Self.FK_musica_idiomas" FromRole="idiomas" ToRole="musica" />
+          <NavigationProperty Name="peliculas" Relationship="Self.FK_peliculas_idiomas" FromRole="idiomas" ToRole="peliculas" />
+        </EntityType>
+        <EntityType Name="libro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id_genero" Type="Int32" Nullable="false" />
+          <Property Name="autor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_idioma" Type="Int32" Nullable="false" />
+          <Property Name="consecutivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="editorial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="anio_publicacion" Type="Int32" Nullable="false" />
+          <Property Name="archivo_descarga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="archivo_preview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cantidad_descarga" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Int32" />
+          <NavigationProperty Name="genero" Relationship="Self.FK_libros_generos" FromRole="libros" ToRole="generos" />
+          <NavigationProperty Name="idioma" Relationship="Self.FK_libros_idiomas" FromRole="libros" ToRole="idiomas" />
+        </EntityType>
+        <EntityType Name="musica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_genero" Type="Int32" Nullable="false" />
+          <Property Name="tipo_interprete" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_idioma" Type="Int32" Nullable="false" />
+          <Property Name="id_pais" Type="Int32" Nullable="false" />
+          <Property Name="disquera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombre_disco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="anio" Type="Int32" Nullable="false" />
+          <Property Name="archivo_descarga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="archivo_preview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cantidad_descarga" Type="Int32" Nullable="false" />
+          <Property Name="consecutivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="genero" Relationship="Self.FK_musica_generos" FromRole="musica" ToRole="generos" />
+          <NavigationProperty Name="idioma" Relationship="Self.FK_musica_idiomas" FromRole="musica" ToRole="idiomas" />
+          <NavigationProperty Name="pais" Relationship="Self.FK_musica_paises" FromRole="musica" ToRole="paises" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id_pais" />
+          </Key>
+          <Property Name="id_pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="musicas" Relationship="Self.FK_musica_paises" FromRole="paises" ToRole="musica" />
+        </EntityType>
+        <EntityType Name="parametro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="preview_libros" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="path_libros" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="preview_musica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="path_musica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="preview_peliculas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="path_peliculas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pelicula">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_genero" Type="Int32" Nullable="false" />
+          <Property Name="anio" Type="Int32" Nullable="false" />
+          <Property Name="id_idioma" Type="Int32" Nullable="false" />
+          <Property Name="actores" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="archivo_descarga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="archivo_preview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="precio" Type="Int32" Nullable="false" />
+          <Property Name="consecutivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cantidad_descarga" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="genero" Relationship="Self.FK_peliculas_generos" FromRole="peliculas" ToRole="generos" />
+          <NavigationProperty Name="idioma" Relationship="Self.FK_peliculas_idiomas" FromRole="peliculas" ToRole="idiomas" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="usuarios_roles" Relationship="Self.FK_usuarios_roles_roles1" FromRole="roles" ToRole="usuarios_roles" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tarjeta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_tarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mes_exp" Type="Int32" Nullable="false" />
+          <Property Name="anio_exp" Type="Int32" Nullable="false" />
+          <Property Name="cvv" Type="Int32" Nullable="false" />
+          <Property Name="emisor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="limite" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="saldo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="disponible" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="nombre_tarjetahabiente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="transaccione">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_transaccion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="metodo_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="monto_compra" Type="Int32" Nullable="false" />
+          <Property Name="id_consecutivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombre_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombre_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellido_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rol" Type="Int32" Nullable="false" />
+          <Property Name="id_consecutivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tarjeta_bancaria" Type="Boolean" />
+          <NavigationProperty Name="bitacoras" Relationship="Self.FK_bitacora_usuarios" FromRole="usuarios" ToRole="bitacora" />
+          <NavigationProperty Name="usuarios_roles" Relationship="Self.FK_usuarios_roles_usuarios" FromRole="usuarios" ToRole="usuarios_roles" />
+        </EntityType>
+        <EntityType Name="usuarios_roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_usuarios_roles_roles1" FromRole="usuarios_roles" ToRole="roles" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_usuarios_roles_usuarios" FromRole="usuarios_roles" ToRole="usuarios" />
+        </EntityType>
+        <Association Name="FK_bitacora_usuarios">
+          <End Role="usuarios" Type="Self.usuario" Multiplicity="1" />
+          <End Role="bitacora" Type="Self.bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bitacora">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_libros_generos">
+          <End Role="generos" Type="Self.genero" Multiplicity="1" />
+          <End Role="libros" Type="Self.libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="libros">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_musica_generos">
+          <End Role="generos" Type="Self.genero" Multiplicity="1" />
+          <End Role="musica" Type="Self.musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="musica">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peliculas_generos">
+          <End Role="generos" Type="Self.genero" Multiplicity="1" />
+          <End Role="peliculas" Type="Self.pelicula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="peliculas">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_libros_idiomas">
+          <End Role="idiomas" Type="Self.idioma" Multiplicity="1" />
+          <End Role="libros" Type="Self.libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="libros">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_musica_idiomas">
+          <End Role="idiomas" Type="Self.idioma" Multiplicity="1" />
+          <End Role="musica" Type="Self.musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="musica">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peliculas_idiomas">
+          <End Role="idiomas" Type="Self.idioma" Multiplicity="1" />
+          <End Role="peliculas" Type="Self.pelicula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="idiomas">
+              <PropertyRef Name="id_idioma" />
+            </Principal>
+            <Dependent Role="peliculas">
+              <PropertyRef Name="id_idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_musica_paises">
+          <End Role="paises" Type="Self.pais" Multiplicity="1" />
+          <End Role="musica" Type="Self.musica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paises">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="musica">
+              <PropertyRef Name="id_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_roles_roles1">
+          <End Role="roles" Type="Self.role" Multiplicity="1" />
+          <End Role="usuarios_roles" Type="Self.usuarios_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios_roles">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_roles_usuarios">
+          <End Role="usuarios" Type="Self.usuario" Multiplicity="1" />
+          <End Role="usuarios_roles" Type="Self.usuarios_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios_roles">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eDescargasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bitacoras" EntityType="Self.bitacora" />
+          <EntitySet Name="consecutivos" EntityType="Self.consecutivo" />
+          <EntitySet Name="descargas" EntityType="Self.descarga" />
+          <EntitySet Name="easy_pay" EntityType="Self.easy_pay" />
+          <EntitySet Name="errores" EntityType="Self.errore" />
+          <EntitySet Name="generos" EntityType="Self.genero" />
+          <EntitySet Name="idiomas" EntityType="Self.idioma" />
+          <EntitySet Name="libros" EntityType="Self.libro" />
+          <EntitySet Name="musicas" EntityType="Self.musica" />
+          <EntitySet Name="paises" EntityType="Self.pais" />
+          <EntitySet Name="parametros" EntityType="Self.parametro" />
+          <EntitySet Name="peliculas" EntityType="Self.pelicula" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tarjetas" EntityType="Self.tarjeta" />
+          <EntitySet Name="transacciones" EntityType="Self.transaccione" />
+          <EntitySet Name="usuarios" EntityType="Self.usuario" />
+          <EntitySet Name="usuarios_roles" EntityType="Self.usuarios_roles" />
+          <AssociationSet Name="FK_bitacora_usuarios" Association="Self.FK_bitacora_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="bitacora" EntitySet="bitacoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_libros_generos" Association="Self.FK_libros_generos">
+            <End Role="generos" EntitySet="generos" />
+            <End Role="libros" EntitySet="libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_musica_generos" Association="Self.FK_musica_generos">
+            <End Role="generos" EntitySet="generos" />
+            <End Role="musica" EntitySet="musicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peliculas_generos" Association="Self.FK_peliculas_generos">
+            <End Role="generos" EntitySet="generos" />
+            <End Role="peliculas" EntitySet="peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_libros_idiomas" Association="Self.FK_libros_idiomas">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="libros" EntitySet="libros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_musica_idiomas" Association="Self.FK_musica_idiomas">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="musica" EntitySet="musicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peliculas_idiomas" Association="Self.FK_peliculas_idiomas">
+            <End Role="idiomas" EntitySet="idiomas" />
+            <End Role="peliculas" EntitySet="peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_musica_paises" Association="Self.FK_musica_paises">
+            <End Role="paises" EntitySet="paises" />
+            <End Role="musica" EntitySet="musicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_roles_roles1" Association="Self.FK_usuarios_roles_roles1">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios_roles" EntitySet="usuarios_roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_roles_usuarios" Association="Self.FK_usuarios_roles_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="usuarios_roles" EntitySet="usuarios_roles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eDescargasModelStoreContainer" CdmEntityContainer="eDescargasEntities">
+          <EntitySetMapping Name="bitacoras">
+            <EntityTypeMapping TypeName="eDescargasModel.bitacora">
+              <MappingFragment StoreEntitySet="bitacora">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="fecha_cambio" ColumnName="fecha_cambio" />
+                <ScalarProperty Name="codigo_registro" ColumnName="codigo_registro" />
+                <ScalarProperty Name="tipo_registro" ColumnName="tipo_registro" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="detalle_registro" ColumnName="detalle_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consecutivos">
+            <EntityTypeMapping TypeName="eDescargasModel.consecutivo">
+              <MappingFragment StoreEntitySet="consecutivos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="consecutivo1" ColumnName="consecutivo" />
+                <ScalarProperty Name="permite_prefijo" ColumnName="permite_prefijo" />
+                <ScalarProperty Name="prefijo" ColumnName="prefijo" />
+                <ScalarProperty Name="rango" ColumnName="rango" />
+                <ScalarProperty Name="init_rango" ColumnName="init_rango" />
+                <ScalarProperty Name="end_rango" ColumnName="end_rango" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="descargas">
+            <EntityTypeMapping TypeName="eDescargasModel.descarga">
+              <MappingFragment StoreEntitySet="descargas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha_transaccion" ColumnName="fecha_transaccion" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="nombre_item" ColumnName="nombre_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="easy_pay">
+            <EntityTypeMapping TypeName="eDescargasModel.easy_pay">
+              <MappingFragment StoreEntitySet="easy_pay">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="num_cuenta" ColumnName="num_cuenta" />
+                <ScalarProperty Name="codigo_seguridad" ColumnName="codigo_seguridad" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="id_tarjeta" ColumnName="id_tarjeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="errores">
+            <EntityTypeMapping TypeName="eDescargasModel.errore">
+              <MappingFragment StoreEntitySet="errores">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+                <ScalarProperty Name="numero_error" ColumnName="numero_error" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="generos">
+            <EntityTypeMapping TypeName="eDescargasModel.genero">
+              <MappingFragment StoreEntitySet="generos">
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="genero1" ColumnName="genero" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="idiomas">
+            <EntityTypeMapping TypeName="eDescargasModel.idioma">
+              <MappingFragment StoreEntitySet="idiomas">
+                <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+                <ScalarProperty Name="idioma1" ColumnName="idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="libros">
+            <EntityTypeMapping TypeName="eDescargasModel.libro">
+              <MappingFragment StoreEntitySet="libros">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="autor" ColumnName="autor" />
+                <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+                <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+                <ScalarProperty Name="editorial" ColumnName="editorial" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="archivo_descarga" ColumnName="archivo_descarga" />
+                <ScalarProperty Name="archivo_preview" ColumnName="archivo_preview" />
+                <ScalarProperty Name="cantidad_descarga" ColumnName="cantidad_descarga" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="musicas">
+            <EntityTypeMapping TypeName="eDescargasModel.musica">
+              <MappingFragment StoreEntitySet="musica">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="tipo_interprete" ColumnName="tipo_interprete" />
+                <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="disquera" ColumnName="disquera" />
+                <ScalarProperty Name="nombre_disco" ColumnName="nombre_disco" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="archivo_descarga" ColumnName="archivo_descarga" />
+                <ScalarProperty Name="archivo_preview" ColumnName="archivo_preview" />
+                <ScalarProperty Name="cantidad_descarga" ColumnName="cantidad_descarga" />
+                <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paises">
+            <EntityTypeMapping TypeName="eDescargasModel.pais">
+              <MappingFragment StoreEntitySet="paises">
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parametros">
+            <EntityTypeMapping TypeName="eDescargasModel.parametro">
+              <MappingFragment StoreEntitySet="parametros">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="preview_libros" ColumnName="preview_libros" />
+                <ScalarProperty Name="path_libros" ColumnName="path_libros" />
+                <ScalarProperty Name="preview_musica" ColumnName="preview_musica" />
+                <ScalarProperty Name="path_musica" ColumnName="path_musica" />
+                <ScalarProperty Name="preview_peliculas" ColumnName="preview_peliculas" />
+                <ScalarProperty Name="path_peliculas" ColumnName="path_peliculas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="peliculas">
+            <EntityTypeMapping TypeName="eDescargasModel.pelicula">
+              <MappingFragment StoreEntitySet="peliculas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+                <ScalarProperty Name="actores" ColumnName="actores" />
+                <ScalarProperty Name="archivo_descarga" ColumnName="archivo_descarga" />
+                <ScalarProperty Name="archivo_preview" ColumnName="archivo_preview" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+                <ScalarProperty Name="cantidad_descarga" ColumnName="cantidad_descarga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="eDescargasModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipo_rol" ColumnName="tipo_rol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="eDescargasModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tarjetas">
+            <EntityTypeMapping TypeName="eDescargasModel.tarjeta">
+              <MappingFragment StoreEntitySet="tarjetas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="num_tarjeta" ColumnName="num_tarjeta" />
+                <ScalarProperty Name="mes_exp" ColumnName="mes_exp" />
+                <ScalarProperty Name="anio_exp" ColumnName="anio_exp" />
+                <ScalarProperty Name="cvv" ColumnName="cvv" />
+                <ScalarProperty Name="emisor" ColumnName="emisor" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="limite" ColumnName="limite" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="disponible" ColumnName="disponible" />
+                <ScalarProperty Name="nombre_tarjetahabiente" ColumnName="nombre_tarjetahabiente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transacciones">
+            <EntityTypeMapping TypeName="eDescargasModel.transaccione">
+              <MappingFragment StoreEntitySet="transacciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha_transaccion" ColumnName="fecha_transaccion" />
+                <ScalarProperty Name="metodo_pago" ColumnName="metodo_pago" />
+                <ScalarProperty Name="monto_compra" ColumnName="monto_compra" />
+                <ScalarProperty Name="id_consecutivo" ColumnName="id_consecutivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="eDescargasModel.usuario">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="nombre_1" ColumnName="nombre_1" />
+                <ScalarProperty Name="nombre_2" ColumnName="nombre_2" />
+                <ScalarProperty Name="apellido_1" ColumnName="apellido_1" />
+                <ScalarProperty Name="apellido_2" ColumnName="apellido_2" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="id_consecutivo" ColumnName="id_consecutivo" />
+                <ScalarProperty Name="tarjeta_bancaria" ColumnName="tarjeta_bancaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios_roles">
+            <EntityTypeMapping TypeName="eDescargasModel.usuarios_roles">
+              <MappingFragment StoreEntitySet="usuarios_roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

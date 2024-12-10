@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d6f78543fdc41988cb020f9e20d80c2" Name="Diagram1">
+        <EntityTypeShape EntityType="eDescargasModel.bitacora" Width="1.5" PointX="11" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.consecutivo" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.descarga" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.easy_pay" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.errore" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.genero" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.idioma" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.libro" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.musica" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.pais" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.parametro" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.pelicula" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.role" Width="1.5" PointX="8.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.sysdiagram" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.tarjeta" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.transaccione" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.usuario" Width="1.5" PointX="8.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="eDescargasModel.usuarios_roles" Width="1.5" PointX="11" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="eDescargasModel.FK_bitacora_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_libros_generos" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_musica_generos" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_peliculas_generos" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_libros_idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_musica_idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_peliculas_idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_musica_paises" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_usuarios_roles_roles1" ManuallyRouted="false" />
+        <AssociationConnector Association="eDescargasModel.FK_usuarios_roles_usuarios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

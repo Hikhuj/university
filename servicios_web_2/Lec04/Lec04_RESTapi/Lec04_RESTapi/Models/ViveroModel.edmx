@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ViveroModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Plantas">
+          <Key>
+            <PropertyRef Name="cod_planta" />
+          </Key>
+          <Property Name="cod_planta" Type="int" Nullable="false" />
+          <Property Name="nombre_planta" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="cod_tipo_planta" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipos_Planta">
+          <Key>
+            <PropertyRef Name="cod_tipo_planta" />
+          </Key>
+          <Property Name="cod_tipo_planta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_tipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Plantas_Tipos_Planta">
+          <End Role="Tipos_Planta" Type="Self.Tipos_Planta" Multiplicity="0..1" />
+          <End Role="Plantas" Type="Self.Plantas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipos_Planta">
+              <PropertyRef Name="cod_tipo_planta" />
+            </Principal>
+            <Dependent Role="Plantas">
+              <PropertyRef Name="cod_tipo_planta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ViveroModelStoreContainer">
+          <EntitySet Name="Plantas" EntityType="Self.Plantas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipos_Planta" EntityType="Self.Tipos_Planta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Plantas_Tipos_Planta" Association="Self.FK_Plantas_Tipos_Planta">
+            <End Role="Tipos_Planta" EntitySet="Tipos_Planta" />
+            <End Role="Plantas" EntitySet="Plantas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ViveroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Planta">
+          <Key>
+            <PropertyRef Name="cod_planta" />
+          </Key>
+          <Property Name="cod_planta" Type="Int32" Nullable="false" />
+          <Property Name="nombre_planta" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="cod_tipo_planta" Type="Int32" />
+          <NavigationProperty Name="Tipos_Planta" Relationship="Self.FK_Plantas_Tipos_Planta" FromRole="Plantas" ToRole="Tipos_Planta" />
+        </EntityType>
+        <EntityType Name="Tipos_Planta">
+          <Key>
+            <PropertyRef Name="cod_tipo_planta" />
+          </Key>
+          <Property Name="cod_tipo_planta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Plantas" Relationship="Self.FK_Plantas_Tipos_Planta" FromRole="Tipos_Planta" ToRole="Plantas" />
+        </EntityType>
+        <Association Name="FK_Plantas_Tipos_Planta">
+          <End Role="Tipos_Planta" Type="Self.Tipos_Planta" Multiplicity="0..1" />
+          <End Role="Plantas" Type="Self.Planta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipos_Planta">
+              <PropertyRef Name="cod_tipo_planta" />
+            </Principal>
+            <Dependent Role="Plantas">
+              <PropertyRef Name="cod_tipo_planta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ViveroEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Plantas" EntityType="Self.Planta" />
+          <EntitySet Name="Tipos_Planta" EntityType="Self.Tipos_Planta" />
+          <AssociationSet Name="FK_Plantas_Tipos_Planta" Association="Self.FK_Plantas_Tipos_Planta">
+            <End Role="Tipos_Planta" EntitySet="Tipos_Planta" />
+            <End Role="Plantas" EntitySet="Plantas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ViveroModelStoreContainer" CdmEntityContainer="ViveroEntities">
+          <EntitySetMapping Name="Plantas">
+            <EntityTypeMapping TypeName="ViveroModel.Planta">
+              <MappingFragment StoreEntitySet="Plantas">
+                <ScalarProperty Name="cod_planta" ColumnName="cod_planta" />
+                <ScalarProperty Name="nombre_planta" ColumnName="nombre_planta" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="cod_tipo_planta" ColumnName="cod_tipo_planta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipos_Planta">
+            <EntityTypeMapping TypeName="ViveroModel.Tipos_Planta">
+              <MappingFragment StoreEntitySet="Tipos_Planta">
+                <ScalarProperty Name="cod_tipo_planta" ColumnName="cod_tipo_planta" />
+                <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

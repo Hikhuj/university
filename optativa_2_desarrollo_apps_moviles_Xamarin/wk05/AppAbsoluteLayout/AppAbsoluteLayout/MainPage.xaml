@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAbsoluteLayout.MainPage">
+
+    <AbsoluteLayout BackgroundColor="Blue">
+        <!--
+            Segun los valores que nos de el padre, asi es como podemos acomodar los elementos hijos dependiendo siempre del padre
+        <Frame BackgroundColor="DeepSkyBlue"
+               AbsoluteLayout.LayoutBounds="0,0,1,60"
+               AbsoluteLayout.LayoutFlags="WidthProportional">
+            <Label Text="AbsoluteLayout" />
+        </Frame>
+
+         AbsoluteLayout.LayoutBounds="x,y,w,h"/>
+        <Button Text="Absolute 1"
+                AbsoluteLayout.LayoutBounds="50,50,200,100" />
+
+         Si quiero usar porcentajes, debo usar AbsoluteLayout.LayoutFlags
+        <Button Text="Absolute 2"
+                AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                AbsoluteLayout.LayoutFlags="All" />
+        -->
+
+        <BoxView BackgroundColor="White"
+                 AbsoluteLayout.LayoutBounds="0,0,1,100"
+                 AbsoluteLayout.LayoutFlags="WidthProportional" />
+
+        <BoxView BackgroundColor="Blue"
+                 AbsoluteLayout.LayoutBounds=".5,55,70,70"
+                 AbsoluteLayout.LayoutFlags="XProportional"
+                 CornerRadius="35"/>
+
+        <BoxView BackgroundColor="White"
+                 AbsoluteLayout.LayoutBounds=".5,60,60,60"
+                 AbsoluteLayout.LayoutFlags="XProportional"
+                 CornerRadius="30"/>
+
+        <Label Text="Usuario"
+               TextColor="White"
+               FontSize="30"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               AbsoluteLayout.LayoutBounds=".5,140,1,40"
+               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
+
+        <Entry BackgroundColor="AntiqueWhite"
+               Placeholder="Password"
+               AbsoluteLayout.LayoutBounds=".5,180,1,40"
+               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
+
+        <!-- CAMPO 1 -->
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,220,1,50"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Padding="5,0">
+            <Label Text="Campo"
+                   AbsoluteLayout.LayoutBounds="0,25,.25,50"
+                   AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <Entry Placeholder="Campo"
+                   BackgroundColor="Blue"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds="1,10,.75,50"
+                   AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
+
+        </AbsoluteLayout>
+
+        <!-- CAMPO 2 -->
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,320,1,50"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Padding="5,0">
+            <Label Text="Campo"
+                   AbsoluteLayout.LayoutBounds="0,25,.25,50"
+                   AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <Entry Placeholder="Campo"
+                   BackgroundColor="Blue"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds="1,10,.75,50"
+                   AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
+
+        </AbsoluteLayout>
+
+        <!-- CAMPO 3 -->
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,370,1,50"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Padding="5,0">
+            <Label Text="Campo"
+                   AbsoluteLayout.LayoutBounds="0,25,.25,50"
+                   AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <Entry Placeholder="Campo"
+                   BackgroundColor="Blue"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds="1,10,.75,50"
+                   AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
+
+        </AbsoluteLayout>
+
+        <!-- CAMPO 4 -->
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,420,1,50"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Padding="5,0">
+            <Label Text="Campo"
+                   AbsoluteLayout.LayoutBounds="0,25,.25,50"
+                   AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <Entry Placeholder="Campo"
+                   BackgroundColor="Blue"
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds="1,10,.75,50"
+                   AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" />
+
+        </AbsoluteLayout>
+
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,410,4,50"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Padding="5,0">
+
+            <Button Text="Boton1"
+                    AbsoluteLayout.LayoutBounds="0,25,.20,50"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <Button Text="Boton2"
+                    AbsoluteLayout.LayoutBounds="0,25,.20,50"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <Button Text="Boton3"
+                    AbsoluteLayout.LayoutBounds="0,25,.20,50"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+        </AbsoluteLayout>
+
+    </AbsoluteLayout>
+
+</ContentPage>

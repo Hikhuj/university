@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appRelativeLayout.MainPage">
+
+    <!--
+    <RelativeLayout>
+            va trabajar relativo a los vecinos que tenga
+            Los elementos los va a acomodar
+        <BoxView Color="Red"
+                 x:Name="bxvRojo"
+                 WidthRequest="150"
+                 HeightRequest="150"
+                 RelativeLayout.XConstraint="{
+                    ConstraintExpression
+                    Type=RelativeToParent,
+                    Property= Width,
+                    Factor=.5,
+                    Constant=-75
+                    }"
+                 />
+        -->
+
+        <!-- Lo anterior de Relative Layout se basa en una constante matematica-->
+        <!--
+            Toma el 100% del ancho y lo multiplica
+            (Valor * Factor) + Constante
+            Factor= el espacio que va a tomar la constante
+        -->
+
+        <!--
+        <Label Text="Nombre:"
+               x:Name="lblNombre"
+               RelativeLayout.YConstraint="{
+                    ConstraintExpression
+                    Type=RelativeToView,
+                    ElementName=bxvRojo
+                    Property= Height,
+                    Factor=1.5,
+                    Constant=0
+                    }"
+               />
+
+        <Entry Placeholder="Nombre"
+               RelativeLayout.XConstraint="{
+                    ConstraintExpression
+                    Type=RelativeToView,
+                    ElementName=lblNombre,
+                    Property= x,
+                    Factor=1,
+                    Constant=80
+               }"
+
+               RelativeLayout.YConstraint="{
+                    ConstraintExpression
+                    Type=RelativeToView,
+                    ElementName=lblNombre,
+                    Property= Y,
+                    Factor=1,
+                    Constant=-20
+               }"
+
+               RelativeLayout.WidthConstraint="{
+                    ConstraintExpression
+                    Type=RelativeToParent,
+                    Property= With,
+                    Factor= 1,
+                    Constant=0
+                }"/>
+    </RelativeLayout>
+    -->
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50">
+
+            </RowDefinition>
+            <RowDefinition Height="50">
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*">
+
+            </ColumnDefinition>
+            <ColumnDefinition Width="*">
+
+            </ColumnDefinition>
+            <ColumnDefinition Width="*">
+
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Button Text="1"
+                Grid.Row="0"
+                Grid.Column="0"></Button>
+
+        <Button Text="2"
+                Grid.Row="0"
+                Grid.Column="1"></Button>
+
+        <Button Text="3"
+                Grid.Row="0"
+                Grid.Column="2"></Button>
+
+        <Button Text="."
+                Grid.ColumnSpan="2"
+                Grid.Row="1"></Button>
+
+        <Button Text="."
+                Grid.Row="1"
+                Grid.Column="2"></Button>
+
+    </Grid>
+
+</ContentPage>

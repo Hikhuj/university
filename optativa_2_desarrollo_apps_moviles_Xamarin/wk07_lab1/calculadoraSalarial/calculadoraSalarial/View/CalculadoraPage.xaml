@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="calculadoraSalarial.View.CalculadoraPage">
+    <!-- ^^ en esta forma estoy llamando al proyecto.CarpetaDeVista.Vista -->
+
+    <ScrollView VerticalOptions="FillAndExpand">
+
+        <Grid x:Name="calculatorGrid"
+              ColumnSpacing="0"
+              RowSpacing="0"
+              Margin="0"
+              BackgroundColor="#FFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <!-- LABEL: INGRESE SUS DATOS -->
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="70"/>
+                <!-- LABEL: DEDUCCIONES -->
+                <RowDefinition Height="50"/>
+                <!-- LABEL: CCSS -->
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="185"/>
+                <ColumnDefinition Width="185"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Calculadora Salarial"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   BackgroundColor="#5396C9"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="3"/>
+
+            <Label Text="Ingrese sus Datos en Colones"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   BackgroundColor="#ACACAC"
+                   Padding="15"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="3"/>
+
+            <!-- #1 INPUT: SALARIO BRUTO -->
+            <Label FontSize="15"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="1"
+                   TextColor="Black"/>
+
+            <Label Text="Salario bruto y comisiones"
+                   FontSize="13"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+
+            <!-- El atributo TEXT al parecer es el que captura los datos con el data binding -->
+            <!-- El x:Name me permite que pueda llamar a este elemento en el CODE behind evitando llamar mas codigo. -->
+            <Entry x:Name="txtSalarioBrutoComision"
+                   Placeholder="¢"
+                   FontSize="13"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding calcuSalarialModel.SalarioBrutoComision}"/>
+
+            <!-- #2 INPUT: Otros ingresos -->
+            <Label FontSize="15"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="2"
+                   TextColor="Black"/>
+
+            <Label Text="Otros ingresos salariales ocasionales"
+                   FontSize="13"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+
+            <Entry x:Name="txtIngresoSalarialOcasional"
+                   Placeholder="¢"
+                   FontSize="13"
+                   Grid.Row="3"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding calcuSalarialModel.IngresoSalarialOcasional}"/>
+
+            <!-- #3 Reembolsos Gastos -->
+            <Label Text="3"
+                   FontSize="15"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"/>
+
+            <Label Text="Reembolso de gastos no salariales ni gravables"
+                   FontSize="13"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"/>
+
+            <Entry x:Name="txtReembolsoGastosNoSalarialGravable"
+                   Placeholder="¢"
+                   FontSize="13"
+                   Grid.Row="4"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding calcuSalarialModel.ReembolsoGastosNoSalarialGravable}"/>
+
+            <!-- TOTAL INGRESOS -->
+            <Label Text="Total Ingresos Laborales"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   Grid.Row="5"
+                   Grid.Column="1"
+                   VerticalTextAlignment="Center"/>
+
+            <Label x:Name="lblTotalIngresos"
+                   FontSize="13"
+                   Grid.Row="5"
+                   Grid.Column="2"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding calcuSalarialModel.TotalIngresos}"/>
+
+            <!-- BOTON: CALCULAR -->
+            <Button x:Name="btnCalcular"
+                    Text="Calcular"
+                    Grid.Row="6"
+                    Grid.Column="2"
+                    FontSize="13"
+                    FontAttributes="Bold"
+                    Margin="15"
+                    TextColor="White"
+                    BorderColor="#D22000"
+                    BackgroundColor="#E45824"
+                    Command="{Binding OperationsCommand}"/>
+
+            <!-- DEDUCCIONES -->
+            <Label Text="Ingrese sus Datos en Colones"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="#FFFFFF"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   BackgroundColor="#ACACAC"
+                   Padding="15"
+                   Grid.Row="7"
+                   Grid.ColumnSpan="3"/>
+
+            <Label Text="CCSS"
+                   Grid.Row="8"
+                   Grid.ColumnSpan="3"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Padding="15"/>
+
+            <!-- LABEL: Enfermedad y maternidad -->
+            <Label Text="Enfermedad y Maternidad 5.5%"
+                   FontSize="13"
+                   Grid.Row="9"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblEnfermedadYMaternidad"
+                   Text="{Binding calcuSalarialModel.EnfermedadYMaternidad}"
+                   FontSize="13"
+                   Grid.Row="9"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <!-- LABEL: Invalidez y Muerte -->
+            <Label Text="Invalidez y Muerte 3.84%"
+                   FontSize="13"
+                   Grid.Row="10"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblInvalidezYMuerte"
+                   Text="{Binding calcuSalarialModel.InvalidezYMuerte}"
+                   FontSize="13"
+                   Grid.Row="10"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <!-- LABEL: Aporte trabajador banco popular -->
+            <Label Text="Aporte Trabajador Banco Popular 1%"
+                   FontSize="13"
+                   Grid.Row="11"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblAporteBancoPopular"
+                   Text="{Binding calcuSalarialModel.AporteTrabajadorBancoPopular}"
+                   FontSize="13"
+                   Grid.Row="11"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <!-- 12 LABEL: Asociacion solidarista -->
+            <Label Text="Asociacion Solidarista"
+                   FontSize="13"
+                   Grid.Row="12"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblAporteAsociacionSolidarista"
+                   Text="{Binding calcuSalarialModel.AporteAsociacionSolidarista}"
+                   FontSize="13"
+                   Grid.Row="12"
+                   Grid.RowSpan="2"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <Entry x:Name="txtPorcentajeAporteAsociacionSolidarista"
+                   Placeholder="¢"
+                   FontSize="13"
+                   Grid.Row="13"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding CalcuSalarialModel.AporteAsociacionSolidarista}"/>
+
+            <!-- LABEL: Aporte trabajador banco popular -->
+            <Label Text="Plan de Pensiones Complementarias"
+                   FontSize="13"
+                   Grid.Row="14"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Entry x:Name="txtPlanDePensionesComplementarias"
+                   Placeholder="¢"
+                   FontSize="13"
+                   Grid.Row="14"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding calcuSalarialModel.PlanPensionesComplementarias}"/>
+
+            <!-- LABEL: Salario Gravable -->
+            <Label Text="Salario Gravable"
+                   FontSize="13"
+                   Grid.Row="15"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblSalarioGravable"
+                   Text="{Binding calcuSalarialModel.SalarioGravable}"
+                   FontSize="13"
+                   Grid.Row="15"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <!-- LABEL: Impuesto sobre la renta -->
+            <Label Text="Impuesto sobre la Renta empleados"
+                   FontSize="13"
+                   Grid.Row="16"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblImpuestoRentaEmpleados"
+                   Text="{Binding calcuSalarialModel.ImpuestoRentaEmpleados}"
+                   FontSize="13"
+                   Grid.Row="16"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <!-- LABEL: Total Deducciones -->
+            <Label Text="Total Deducciones"
+                   FontSize="13"
+                   Grid.Row="17"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblTotalDeducciones"
+                   Text="{Binding calcuSalarialModel.TotalDeducciones}"
+                   FontSize="13"
+                   Grid.Row="17"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+            <!-- LABEL: Ingresos Netos -->
+            <Label Text="Ingresos Netos"
+                   FontSize="13"
+                   Grid.Row="18"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black"
+                   Padding="15,0,0,0"/>
+
+            <Label x:Name="lblTotalIngresosNetos"
+                   Text="{Binding calcuSalarialModel.TotalIngresosNetos}"
+                   FontSize="13"
+                   Grid.Row="18"
+                   Grid.Column="2"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"/>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
+

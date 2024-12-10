@@ -1,0 +1,86 @@
+﻿@model IEnumerable<eDescargas.Models.usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ver usuarios</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contrasenia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_consecutivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tarjeta_bancaria)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuario1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contrasenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_consecutivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarjeta_bancaria)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
