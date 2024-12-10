@@ -1,0 +1,99 @@
+﻿@model eDescargas.Models.pelicula
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>pelicula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.archivo_descarga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.archivo_descarga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.archivo_preview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.archivo_preview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.consecutivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.consecutivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_descarga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_descarga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genero.genero1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genero.genero1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idioma.idioma1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idioma.idioma1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

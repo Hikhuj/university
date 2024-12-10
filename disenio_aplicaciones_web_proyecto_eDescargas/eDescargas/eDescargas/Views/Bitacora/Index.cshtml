@@ -1,0 +1,64 @@
+﻿@model IEnumerable<eDescargas.Models.bitacora>
+
+@{
+    ViewBag.Title = "Index";
+    // Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_cambio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo_registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detalle_registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario.usuario1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_cambio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detalle_registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario.usuario1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

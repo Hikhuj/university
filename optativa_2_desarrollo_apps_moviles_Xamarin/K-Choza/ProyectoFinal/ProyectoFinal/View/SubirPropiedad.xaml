@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProyectoFinal.View.SubirPropiedad">
+    <!--Sube propiedad en el menu-->
+    <ContentPage.Content>
+        <StackLayout Background="#f1c40f">
+            <Label Text="K-Choza"
+                       TextColor="#fff"
+                       HorizontalTextAlignment="Center"
+                       Margin="10"
+                       FontAttributes="Bold"
+                       WidthRequest="1000"
+                       FontSize="Title"
+                       Padding="10"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+
+            <Label Text="Nueva Casa"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    Padding="5"
+                    HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+
+            <Frame Margin="10"
+                       BackgroundColor="White"
+                       VerticalOptions="FillAndExpand">
+                <ScrollView>
+                    <!--string lugar-, bool habilitada, string usuario, string titulo-,
+                    string descripcion-, string localizacion-, int precio-, string imagenURL-, int iDCasa-,
+                    string cuartos-, string banios-, string cochera-->
+                    <TableView Intent="Form"
+                           Margin="10"
+                           HasUnevenRows="True">
+
+                        <TableSection>
+                            <EntryCell x:Name="txtIDcasa"
+                                       Label="ID casa"
+                                       Text="{Binding PropiedadModel.IDCasa}"/>
+
+                            <EntryCell x:Name="txtTitulo"
+                                       Label="Titulo"
+                                       Text="{Binding PropiedadModel.Titulo}"/>
+
+                            <EntryCell x:Name="txtLugar"
+                                       Label="Lugar"
+                                       Text="{Binding PropiedadModel.Lugar}"/>
+
+                            <EntryCell x:Name="txtLocalizacion"
+                                       Label="Direccion"
+                                       Text="{Binding PropiedadModel.Localizacion}"/>
+
+                            <EntryCell x:Name="txtDescrip"
+                                       Label="Descripcion"
+                                       Text="{Binding PropiedadModel.Descripcion}"/>
+
+                            <EntryCell x:Name="txtCuartos"
+                                       Label="Cuartos"
+                                       Text="{Binding PropiedadModel.Cuartos}"/>
+
+                            <EntryCell x:Name="txtBanios"
+                                       Label="Banos"
+                                       Text="{Binding PropiedadModel.Banios}"/>
+
+                            <EntryCell x:Name="txtCochera"
+                                       Label="Cochera"
+                                       Text="{Binding PropiedadModel.Cochera}"/>
+
+                            <EntryCell x:Name="txtImagen"
+                                       Label="Imagen"
+                                       Text="{Binding PropiedadModel.ImagenURL}"/>
+
+                            <EntryCell x:Name="txtPrecio"
+                                       Label="Precio"
+                                       Text="{Binding PropiedadModel.Precio}"/>
+                        </TableSection>
+
+                    </TableView>
+
+
+                </ScrollView>
+            </Frame>
+
+            <Button x:Name="btnguardar"
+                          WidthRequest="20"
+                          HeightRequest="50"
+                          Margin="10"
+                          Text="Guardar"
+                          TextColor="#fff"
+                          FontSize="20"
+                          FontAttributes="Bold"
+                          BorderWidth="1.5"
+                          BackgroundColor="#f1c40f"
+                          Command="{Binding Guardar}"/>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

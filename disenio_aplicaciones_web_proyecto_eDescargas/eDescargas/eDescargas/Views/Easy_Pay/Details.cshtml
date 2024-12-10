@@ -1,0 +1,51 @@
+﻿@model eDescargas.Models.easy_pay
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>easy_pay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.num_cuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_cuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo_seguridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_seguridad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_tarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_tarjeta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

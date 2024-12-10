@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinal.View.Registro">
+    <NavigationPage.TitleView>
+        <Label Text="K-Choza: Registrarse"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   Padding="15"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!--1-->
+                <RowDefinition Height="Auto"/>
+                <!--2-->
+                <RowDefinition Height="Auto"/>
+                <!--3-->
+                <RowDefinition Height="Auto"/>
+                <!--4-->
+                <RowDefinition Height="Auto"/>
+                <!--5-->
+                <RowDefinition Height="Auto"/>
+                <!--6-->
+                <RowDefinition Height="Auto"/>
+                <!--7-->
+                <RowDefinition Height="Auto"/>
+                <!--8-->
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="1">
+              
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" HorizontalOptions="Center">
+                <Label
+                    Text="Registro"
+                            TextColor="Black"
+                            Font="Montserrat-Medium.otf"
+                            FontSize="20"
+                            WidthRequest="300"
+                    />
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical"  >
+                <Label
+                    Text="Correo"
+                    FontSize="15"
+                    TextColor="Black"
+                    />
+                <Frame
+                    HasShadow="True"
+                    Padding="6"
+                    CornerRadius="7"
+                    >
+                    <Entry
+                    Placeholder="kchoza@gmail.com"
+                    Keyboard="Email"
+                    MaxLength="25"
+                    FontSize="15"
+                    Text="{Binding EmailTxt}"
+                    />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical" >
+
+                <Label
+                    Text="Contraseña"
+                    FontSize="15"
+                    TextColor="Black"
+                    />
+
+                <Frame
+                     HasShadow="True"
+                     Padding="6"
+                    CornerRadius="7"
+                     >
+
+                    <Entry
+                    Placeholder="******************"
+                    MaxLength="25"
+                    IsPassword="True"
+                    FontSize="15"
+                    Text="{Binding PasswordTxt}"
+                    />
+
+                </Frame>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical" >
+                <Label
+                     Text="Nombre Completo"
+                     FontSize="15"
+                     TextColor="Black"/>
+
+                <Frame
+                     HasShadow="True"
+                     Padding="6"
+                     CornerRadius="7"
+                     >
+
+                    <Entry
+                    Placeholder="Cristiano Ronaldo"
+                    MaxLength="25"
+                    Keyboard="Text"
+                    FontSize="15"
+                    Text="{Binding NameTxt}"
+                    />
+
+                </Frame>
+            </StackLayout>
+            <StackLayout Grid.Row="6" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical" Spacing="20">
+                <StackLayout WidthRequest="140">
+
+            
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="7" HorizontalOptions="Center">
+            
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="8" HorizontalOptions="Center" Orientation="Vertical" >
+                <Button
+                     Text="Registrarse"
+                            TextColor="White"
+                             Font="Montserrat-Medium.otf"
+                            FontSize="15"
+                            BackgroundColor="#f1c40f"
+                            BorderWidth="1.5"
+                            WidthRequest="300"
+                            HeightRequest="50"
+                            CornerRadius="7"
+                            Command="{Binding RegisterCommand}"
+                    />
+        
+                <Button
+                    x:Name="btnisesion"
+                            Text="Ya tiene una cuenta? Inicie sesion"
+                            TextColor="White"
+                            FontSize="14"
+                            BorderWidth="1.5"
+                            BackgroundColor="#f1c40f"
+                            />
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

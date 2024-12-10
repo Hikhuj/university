@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppWk03.MainPage">
+
+    <StackLayout>
+        <!-- VIEWS
+        <ActivityIndicator Color="DarkRed"
+                           IsRunning="True"/>
+        -->
+
+        <!-- Es una cajita, tiene diferentes atributos que se le pueden aplicar
+        <BoxView Color="Aquamarine" />
+        -->
+
+        <!--
+            Un ejemplo de boton
+            El text le da un contenido, se le puede dar un color
+        
+        <Button Text="Click"
+                TextColor="Green"
+                FontSize="Large"
+                FontAttributes="Bold"
+                BorderColor="Blue"
+                BorderWidth="2"
+                BorderRadius="20"
+                Clicked="Button_Clicked"/>
+        -->
+
+        <!-- Cuando hay cambios en el main page, no se pueden cargar como Hot Reload entonces toca recargar -->
+
+        <!--
+            DATE PICKER: Usuario elige una fecha.
+
+            Vamos a limitar la cantidad de anios que se pueden ver
+            x:Name nos permite darle un nombre a nuestra View para cuando estemos en CodeBehind
+            o bien en la parte programable, un nombre para poder identificar este View
+            y asi poder trabajar este view
+        
+        <DatePicker x:Name="dtp"
+                    Format="dd/MM/yyyy"/>
+        -->
+
+        <!-- 
+            INPUT TEXT: Para obtener texto de usuario -->
+        <!--
+        <Editor x:Name="editor"
+                HeightRequest="150"
+                Text="Texto"
+                FontSize="Large"
+                TextColor="Blue" />
+
+        <Entry 
+            VerticalOptions="Center"
+            HorizontalOptions="FillAndExpand"
+            IsPassword="False"
+            Placeholder="Usuario"
+            PlaceholderColor="Green"
+            Text="Username"
+            TextColor="Coral"
+            FontAttributes="Italic"
+            FontSize="Large"/>
+
+        <Image Source="Xamarin.png"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               WidthRequest="100"
+               HeightRequest="100"/>
+        -->
+
+        <Label Text="Hola Mundo!!!"
+               TextColor="Red"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               BackgroundColor="Black"
+               WidthRequest="150">
+            <!-- Estos son VIEWS tambien -->
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Texto alterno 1"
+                          FontAttributes="Bold"
+                          FontSize="Large"
+                        />
+                    <Span Text="Texto alterno 2"
+                          FontAttributes="Bold"
+                          TextColor="DarkGoldenrod"
+                        />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Picker x:Name="picker"
+                Title="Seleccionar..."
+                TextColor="Blue"
+                SelectedIndexChanged="picker_SelectedIndexChanged">
+            <Picker.Items>
+                <x:String>Mario Bros</x:String>
+                <x:String>Halo</x:String>
+                <x:String>Gears of Wars</x:String>
+                <x:String>FIFA</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <ProgressBar x:Name="progress"
+                     Progress="0.10"
+                     />
+
+        <Button Text="Simular"
+                x:Name="btnSimular"
+                Clicked="btnSimular_Clicked"
+                />
+
+        <SearchBar Placeholder="Buscar..."
+                   CancelButtonColor="Red"
+                   SearchButtonPressed="SearchBar_SearchButtonPressed"
+                   TextChanged="SearchBar_TextChanged"
+                   />
+        
+        <Slider x:Name="slider"
+                BackgroundColor="Gray"
+                Maximum="200"
+                Minimum="100"
+                />
+
+        <!--
+        <Slider x:Name="slider"
+                BackgroundColor="Gray"
+                Maximum="200"
+                Minimum="100"
+                ValueChanged="slider_ValueChanged"
+                />
+        -->
+
+        <Label x:Name="lblSlider"
+               FontSize="Large"
+               />
+
+        <Stepper x:Name="stepper"
+                 Minimum="50"
+                 Maximum="250"
+                 Increment="25"
+                 ValueChanged="stepper_ValueChanged"
+                 />
+
+        <Label x:Name="lblStepper"
+               FontSize="Large"
+               />
+
+        <Switch IsToggled="True"
+                Toggled="Switch_Toggled"
+                />
+
+        <TableView Intent="Form"
+                   BackgroundColor="Gray">
+            <!-- Este seria el cuerpo de la tabla -->
+            <TableRoot Title="Table Root">
+                <TableSection Title="Datos"
+                              TextColor="Black">
+                    <TextCell Text="Nombre Completo"
+                              Detail="Detaller de la celda"/>
+                    <EntryCell Placeholder="Nombre..."/>
+                </TableSection>
+                <TableSection Title="Otros Datos">
+                    <EntryCell Placeholder="(506) 8548-2428"
+                               Label="Telefono"
+                               Keyboard="Telephone"/>
+                    <SwitchCell Text="Suscribirse!!!"
+                                />
+                    <ViewCell>
+                        <!--  -->
+                        <ViewCell.View>
+                            <StackLayout>
+                                <BoxView Color="Blue"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Label1"/>
+                                    <Label Text="Label2"/>
+                                    <Label Text="Label3"/>
+                                </StackLayout>
+                                <BoxView Color="Yellow"/>
+                                <Switch IsToggled="True"
+                                        Toggled="Switch_Toggled_1"
+                                    />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+
+                </TableSection>
+            </TableRoot>
+
+        </TableView>
+
+        <TimePicker x:Name="timePicker"
+                    TextColor="Coral"/>
+
+        <Label Text="Prueba"
+               />
+
+        <!-- Este view a facilitado la vida con el desarrollo de aplicaciones web -->
+        <!-- Permite -->
+        <WebView x:Name="webView"
+                 Source="https://getbootstrap.com/"
+                 Navigated="webView_Navigated"
+                 Navigating="webView_Navigating"
+                 VerticalOptions="FillAndExpand"
+                 />
+
+    </StackLayout>
+
+</ContentPage>

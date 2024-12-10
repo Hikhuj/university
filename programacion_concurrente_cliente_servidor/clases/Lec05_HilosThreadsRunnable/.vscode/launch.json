@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Lec05",
+            "request": "launch",
+            "mainClass": "lec05.Lec05"
+        }
+    ]
+}

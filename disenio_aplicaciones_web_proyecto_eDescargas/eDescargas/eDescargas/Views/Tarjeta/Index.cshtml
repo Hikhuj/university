@@ -1,0 +1,88 @@
+﻿@model IEnumerable<eDescargas.Models.tarjeta>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.num_tarjeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mes_exp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anio_exp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cvv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emisor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.limite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.disponible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_tarjetahabiente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_tarjeta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mes_exp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.anio_exp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cvv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emisor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.limite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.disponible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_tarjetahabiente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

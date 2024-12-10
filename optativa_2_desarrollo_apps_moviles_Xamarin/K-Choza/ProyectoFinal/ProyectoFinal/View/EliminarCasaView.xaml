@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProyectoFinal.View.EliminarCasaView">
+
+    <!--vista eliminar casa en menu-->
+    <ContentPage.Content>
+        <StackLayout Background="#f1c40f">
+            <Label Text="K-Choza"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="Title"
+               Padding="10"
+                HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+            <Label Text="Eliminar Casa"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="Title"
+                Padding="5"
+                HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+
+            <Frame Margin="10"
+                   BackgroundColor="White"
+                   VerticalOptions="FillAndExpand">
+                <TableView Intent="Form"
+                   Margin="10"
+                   HasUnevenRows="True">
+
+                <TableSection>
+                    <EntryCell x:Name="txtIDcasa"
+                           Label="ID Casa"
+                           Text="{Binding PropiedadModel.IDCasa}"/>
+
+                </TableSection>
+            </TableView>
+
+        </Frame>
+
+        <Button x:Name="btneliminar"
+                Text="Eliminar"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                BorderWidth="1.5"
+                BackgroundColor="#f1c40f"
+                Command="{Binding Eliminar}"
+                />
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

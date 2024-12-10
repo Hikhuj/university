@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="ProyectoFinal.View.CasaPerfil">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     x:Name="btnLogin"
+                   IconImageSource="login.png"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="Green">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- 1. Foto de perfil -->
+            <Image x:Name="foto_de_casa"
+                   Grid.Row="0"
+                   Source="Barrio Escalante"
+                   VerticalOptions="Start"/>
+
+            <!-- 2. Seccion de Informacion de Contacto -->
+            <StackLayout Grid.Row="0" BackgroundColor="White" VerticalOptions="End">
+                <Frame CornerRadius="40" Style="{StaticResource stlMainFrame}">
+
+                    <Grid Padding="25,10,25,0" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- 3. Botones: de correo y de telefono (no necesariamente podria aparecer) -->
+                        <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource stlContactBtn}" HorizontalOptions="End" ImageSource="Telefono"/>
+                        <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" ImageSource="Correo"/>
+
+                        <!-- 4. Informacion de contacto: Persona -->
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Javier Soursa" FontAttributes="Bold" FontSize="30"/>
+
+                        <!-- 4. Informacion de contacto: Provincia-->
+                        <Label Grid.Row="1" Grid.Column="0" Text="San Jose" TextColor="#a5a2a2" FontSize="16"/>
+
+                        <!-- 4. Informacion de contacto: Direccion -->
+                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Direccion: " FontAttributes="Bold" />
+                                    <Span Text="Tres Rios"  /> 
+                                </FormattedString>
+                            </Label.FormattedText>
+                         </Label>
+
+                        <!--4. Informacion de contacto: Mini footer de informacion-->
+                        <Label Grid.Row="3" Grid.Column="0" Text="Cuartos" Style="{StaticResource stlBoardTitle}" />
+                        <Label Grid.Row="4" Grid.Column="0" Text="3" Style="{StaticResource stlBoardDesc}"/>
+
+                        <Label Grid.Row="3" Grid.Column="1" Text="Baños" Style="{StaticResource stlBoardTitle}"/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="2.5" Style="{StaticResource stlBoardDesc}"/>
+
+                        <Label Grid.Row="3" Grid.Column="2" Text="Cochera" Style="{StaticResource stlBoardTitle}"/>
+                        <Label Grid.Row="4" Grid.Column="2" Text="2" Style="{StaticResource stlBoardDesc}"/>
+
+                        <!--4. Informacion de contacto: Botones -->
+                        <Button Grid.Row="5"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                TextColor="White"
+                                BackgroundColor="#f1c40f"
+                                Text="Contactar"
+                                Margin="0,20,0,2"
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                HeightRequest="45"/> 
+
+                    </Grid>
+                </Frame>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

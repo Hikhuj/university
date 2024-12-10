@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProyectoFinal.View.HabilitarCasa">
+    <ContentPage.Content>
+        <StackLayout Background="#f1c40f">
+            <Label Text="K-Choza"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="Title"
+                Padding="10"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+
+            <Label Text="Habilitar Casa"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="Title"
+                Padding="5"
+                HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+
+            <Frame Margin="10"
+                   BackgroundColor="White"
+                   VerticalOptions="FillAndExpand">
+
+
+                <TableView Intent="Form"
+                   Margin="10"
+                   HasUnevenRows="True">
+
+                    <TableSection>
+                        <EntryCell x:Name="txtIDcasa"
+                           Label="ID Casa"
+                           Text="{Binding PropiedadModel.IDCasa}"/>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Button x:Name="btnBuscar"
+                                    Text="Buscar"
+                                    TextColor="White"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    BorderWidth="1.5"
+                                    BackgroundColor="#f1c40f"
+                                    Command="{Binding Buscar}"
+                                    />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                        <TextCell x:Name="lblLugar"
+                          Text="Lugar"
+                          TextColor="#3b5998"
+                          Detail="{Binding PropiedadModel.Lugar}"/>
+
+                        <TextCell x:Name="lblDescrip"
+                          Text="Descripcion"
+                          TextColor="#3b5998"
+                          Detail="{Binding PropiedadModel.Descripcion}"/>
+
+                        <TextCell x:Name="lblPrecio"
+                          Text="Precio"
+                          TextColor="#3b5998"
+                          Detail="{Binding PropiedadModel.Precio}"/>
+
+                        <TextCell x:Name="lblDisponible"
+                          Text="Disponible"
+                          TextColor="#3b5998"
+                          Detail="{Binding PropiedadModel.Habilitada}"/>
+                </TableSection>
+            </TableView>
+        </Frame>
+
+        <Button x:Name="btnCambiar"
+                Text="Cambiar"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                BorderWidth="1.5"
+                BackgroundColor="#f1c40f"
+                Command="{Binding Cambiar}"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
